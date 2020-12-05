@@ -18,6 +18,7 @@ public class Login implements ActionListener {
     private JTextField usernametf1, passwordtf2;
     private JButton but;
     private JLabel label1, label2, label3, laCon;
+    private String username, password;
 
     public Login() {
         ImageIcon icon = null;
@@ -62,6 +63,19 @@ public class Login implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        
+        username = "username";
+        password = "password";
+        if((e.getSource().equals(but))){
+            if((username.equals(usernametf1.getText()+""))&&(password.equals(passwordtf2.getText()+""))){
+            new mainFrame();
+            fr.dispose();
+            }
+            else if(!(username.equals(usernametf1.getText()+""))){
+                JOptionPane.showMessageDialog(null, "invalid username.", "", JOptionPane.WARNING_MESSAGE);
+            }
+            else if(!(password.equals(passwordtf2.getText()+""))){
+                JOptionPane.showMessageDialog(null, "invalid password.", "", JOptionPane.WARNING_MESSAGE);
+            }
+        }
     }
 }

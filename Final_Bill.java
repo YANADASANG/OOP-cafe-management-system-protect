@@ -23,6 +23,7 @@ public class Final_Bill implements ActionListener, WindowListener {
     private ArrayList<Drink> drinklist = new ArrayList<Drink>();
     private Dessert des;
     private Drink drinkmenu;
+    private double calcu;
 
     public Final_Bill() {
         fr = new JFrame("TOTAL");
@@ -76,8 +77,9 @@ public class Final_Bill implements ActionListener, WindowListener {
                 fin.close();
                 for (int i = 0; i < drinklist.size(); i++) {//for check
                     drinkmenu = (Drink) drinklist.get(i);
-                    ta.append(" "+drinkmenu.getName() + "\t" + drinkmenu.getType() + "\t\t" + drinkmenu.getNumbers()+"\n");
-                    System.out.println(drinkmenu.getName() + " " + drinkmenu.getType() + " " + drinkmenu.getNumbers());
+                    calcu += drinkmenu.getPrices();
+                    ta.append(" "+drinkmenu.getName() + "\t" + drinkmenu.getType() + "\t" + drinkmenu.getNumbers()+ "\t" +drinkmenu.getPrices() + "\n");
+                    System.out.println(drinkmenu.getName() + " " + drinkmenu.getType() + " " + drinkmenu.getNumbers()+ " " + drinkmenu.getPrices());
                 }
             } catch (IOException i) {
                 i.printStackTrace();
@@ -95,9 +97,11 @@ public class Final_Bill implements ActionListener, WindowListener {
                 fin.close();
                 for (int i = 0; i < deslist.size(); i++) {//for check
                     des = (Dessert) deslist.get(i);
-                    ta.append(" "+des.getName() + "\t" + des.getType() + "\t\t" + des.getNumbers()+"\n");
-                    System.out.println(des.getName() + " " + des.getType() + " " + des.getNumbers());
+                    calcu += des.getPrices();
+                    ta.append(" "+des.getName() + "\t" + des.getType() + "\t" + des.getNumbers()+ "\t" +des.getPrices() +"\n");
+                    System.out.println(des.getName() + " " + des.getType() + " " + des.getNumbers() + " " + des.getPrices());
                 }
+                ta.append("\t\t\tTotal\t"+String.valueOf(calcu)+"\n");
 
             } catch (IOException i) {
                 i.printStackTrace();

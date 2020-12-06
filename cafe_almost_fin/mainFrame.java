@@ -64,6 +64,7 @@ public class mainFrame implements ActionListener, WindowListener {
         confirm = new JButton("Confirm");
         reset.addActionListener(this);
         confirm.addActionListener(this);
+        logout.addActionListener(this);
         logo = new ImageIcon("logo.png");
         logo_label = new JLabel(logo);
         cost_drink = new JLabel(" Cost Drink");
@@ -668,6 +669,7 @@ public class mainFrame implements ActionListener, WindowListener {
             new Final_Bill();
         }
         if(ae.getSource().equals(logout)){
+            System.out.println("out");
             fr.dispose();
             new Login();
         }

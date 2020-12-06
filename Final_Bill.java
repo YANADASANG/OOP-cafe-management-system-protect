@@ -61,7 +61,7 @@ public class Final_Bill implements ActionListener, WindowListener {
         }
         if(ae.getSource().equals(bn2)){
             fr.dispose();
-            new Printed();
+            new printed();
         }
     }
 
@@ -77,8 +77,8 @@ public class Final_Bill implements ActionListener, WindowListener {
                 fin.close();
                 for (int i = 0; i < drinklist.size(); i++) {//for check
                     drinkmenu = (Drink) drinklist.get(i);
-                    calcu += drinkmenu.getPrices();
-                    ta.append(" "+drinkmenu.getName() + "\t" + drinkmenu.getType() + "\t" + drinkmenu.getNumbers()+ "\t" +drinkmenu.getPrices() + "\n");
+                    calcu += drinkmenu.getPrices() * drinkmenu.getNumbers();
+                    ta.append(" "+drinkmenu.getName() + "\t" + drinkmenu.getType() + "\t" + drinkmenu.getNumbers()+ "\t" +(drinkmenu.getPrices()*drinkmenu.getNumbers()) + "\n");
                     System.out.println(drinkmenu.getName() + " " + drinkmenu.getType() + " " + drinkmenu.getNumbers()+ " " + drinkmenu.getPrices());
                 }
             } catch (IOException i) {
@@ -97,11 +97,13 @@ public class Final_Bill implements ActionListener, WindowListener {
                 fin.close();
                 for (int i = 0; i < deslist.size(); i++) {//for check
                     des = (Dessert) deslist.get(i);
-                    calcu += des.getPrices();
-                    ta.append(" "+des.getName() + "\t" + des.getType() + "\t" + des.getNumbers()+ "\t" +des.getPrices() +"\n");
+                    calcu += des.getPrices() * des.getNumbers();
+                    ta.append(" "+des.getName() + "\t" + des.getType() + "\t" + des.getNumbers()+ "\t" +(des.getPrices()*des.getNumbers()) +"\n");
                     System.out.println(des.getName() + " " + des.getType() + " " + des.getNumbers() + " " + des.getPrices());
                 }
-                ta.append("\t\t\tTotal\t"+String.valueOf(calcu)+"\n");
+                ta.append("\t\tTotal\t"+String.valueOf(calcu)+"\n");
+                ta.append("\t\tVat7%\t"+String.valueOf(calcu*7/100)+"\n");
+                ta.append("\t\tTotal_all\t"+String.valueOf(calcu+(calcu*7/100))+"\n");
 
             } catch (IOException i) {
                 i.printStackTrace();

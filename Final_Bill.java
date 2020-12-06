@@ -9,14 +9,16 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.ObjectInputStream;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
-public class Final_Bill implements ActionListener, WindowListener{
+public class Final_Bill implements ActionListener, WindowListener {
 
     private JFrame fr;
     private JTextArea ta;
     private JPanel pn, pn2;
-    private JButton bn1, bn2;
+    private JButton bn1,bn2;
     private ArrayList<Dessert> deslist = new ArrayList<Dessert>();
     private ArrayList<Drink> drinklist = new ArrayList<Drink>();
     private Dessert des;
@@ -27,7 +29,7 @@ public class Final_Bill implements ActionListener, WindowListener{
         fr.addWindowListener(this);
         bn1 = new JButton("BACK");
         bn1.addActionListener(this);
-        bn2 = new JButton("PRINT BILL");
+        bn2 = new JButton("CLOSE");
         bn2.addActionListener(this);
         ta = new JTextArea("", 45, 45);
         ta.setEditable(false);
@@ -39,15 +41,14 @@ public class Final_Bill implements ActionListener, WindowListener{
 
         pn2 = new JPanel();
         pn2.setLayout(new FlowLayout());
-        pn2.add(bn2);
-        pn2.add(bn1);
+        pn2.add(bn1); pn2.add(bn2);
 
         fr.setLayout(new BorderLayout());
         fr.add(pn, BorderLayout.CENTER);
         fr.add(pn2, BorderLayout.SOUTH);
 
         fr.setVisible(true);
-        fr.setSize(500, 700);
+        fr.setSize(430, 700);
         fr.setLocation(600, 100);
         fr.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     }
@@ -57,13 +58,14 @@ public class Final_Bill implements ActionListener, WindowListener{
             fr.dispose();
             new mainFrame();
         }
-        if (ae.getSource().equals(bn2)) {
+        if(ae.getSource().equals(bn2)){
             fr.dispose();
-            new printed();
+            new Printed();
         }
     }
 
     public void windowOpened(WindowEvent e) {
+        ta.append("\t*****CAFE MANAGEMENT SYSTEM*****\n\n");
         File f = new File("DrinkData.data");
         if (f.exists()) {
             try {
@@ -74,7 +76,7 @@ public class Final_Bill implements ActionListener, WindowListener{
                 fin.close();
                 for (int i = 0; i < drinklist.size(); i++) {//for check
                     drinkmenu = (Drink) drinklist.get(i);
-                    ta.append(drinkmenu.getName() + " " + drinkmenu.getType() + " " + drinkmenu.getNumbers()+"\n");
+                    ta.append(" "+drinkmenu.getName() + "\t" + drinkmenu.getType() + "\t\t" + drinkmenu.getNumbers()+"\n");
                     System.out.println(drinkmenu.getName() + " " + drinkmenu.getType() + " " + drinkmenu.getNumbers());
                 }
             } catch (IOException i) {
@@ -93,8 +95,8 @@ public class Final_Bill implements ActionListener, WindowListener{
                 fin.close();
                 for (int i = 0; i < deslist.size(); i++) {//for check
                     des = (Dessert) deslist.get(i);
-                    ta.append(des.getName() + " " + des.getNumbers()+"\n");
-                    System.out.println(des.getName() + " " + des.getNumbers());
+                    ta.append(" "+des.getName() + "\t" + des.getType() + "\t\t" + des.getNumbers()+"\n");
+                    System.out.println(des.getName() + " " + des.getType() + " " + des.getNumbers());
                 }
 
             } catch (IOException i) {
@@ -103,7 +105,12 @@ public class Final_Bill implements ActionListener, WindowListener{
                 System.out.println("no data");
             }
         }
-
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("\t        dd/MM/yyyy                     HH:mm:ss");
+        ta.append("=======================================================\n\n");
+        ta.append("For Price Calculate\n");
+        ta.append("=======================================================\n");
+        ta.append("\n\n"+dtf.format(LocalDateTime.now())+"\n\n");
+        ta.append("\t\tTHANK YOU");
     }
 
     @Override

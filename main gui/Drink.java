@@ -13,8 +13,8 @@ import java.io.Serializable;
  */
 public class Drink extends Order implements Serializable{
 
-    public Drink(String type,String name,int numbers) {
-        super(type,name,numbers);
+    public Drink(String type,String name,int numbers,int prices) {
+        super(type,name,numbers,prices);
     }
-    
+
 }

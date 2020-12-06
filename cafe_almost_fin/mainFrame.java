@@ -913,6 +913,8 @@ public class mainFrame extends Thread implements ActionListener, WindowListener 
             cal_dessert.setText(null);
             vat7.setText(null);
             last.setText(null);
+            showdes = new ArrayList<Dessert>();
+            showdrink = new ArrayList<Drink>();
         }
     }
 

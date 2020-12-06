@@ -663,6 +663,52 @@ public class mainFrame implements ActionListener {
             fr.dispose();
             new Login();
         }
+        if(ae.getSource().equals(reset)){
+            ti.setText(null);
+            choc.setText(null);
+            ban.setText(null);
+            str.setText(null);
+            blu.setText(null);
+            tof.setText(null);
+            coco.setText(null);
+            red.setText(null);
+            brown.setText(null);
+            eg.setText(null);
+            hess.setText(null);
+            hlatt.setText(null);
+            hcappu.setText(null);
+            hamer.setText(null);
+            hmoch.setText(null);
+            hmat.setText(null);
+            hblack.setText(null);
+            hchoco.setText(null);
+            hcaram.setText(null);
+            hfruit.setText(null);
+            iess.setText(null);
+            ilatt.setText(null);
+            icappu.setText(null);
+            iamer.setText(null);
+            imoch.setText(null);
+            imat.setText(null);
+            iblack.setText(null);
+            ichoco.setText(null);
+            icaram.setText(null);
+            ifruit.setText(null);
+            fess.setText(null);
+            flatt.setText(null);
+            fcappu.setText(null);
+            famer.setText(null);
+            fmoch.setText(null);
+            fmat.setText(null);
+            fblack.setText(null);
+            fchoco.setText(null);
+            fcaram.setText(null);
+            ffruit.setText(null);
+            cal_drink.setText(null);
+            cal_dessert.setText(null);
+            vat7.setText(null);
+            last.setText(null);
+        }
     }
      
     public void saveDessertdata() {

@@ -49,7 +49,7 @@ public class Final_Bill implements ActionListener, WindowListener {
         fr.add(pn2, BorderLayout.SOUTH);
 
         fr.setVisible(true);
-        fr.setSize(430, 700);
+        fr.setSize(430, 800);
         fr.setLocation(600, 100);
         fr.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     }

@@ -58,6 +58,7 @@ public class mainFrame implements ActionListener {
         logout = new JButton("Log out");
         reset = new JButton("Reset");
         confirm = new JButton("Confirm");
+        logout.addActionListener(this);
         reset.addActionListener(this);
         confirm.addActionListener(this);
         logo = new ImageIcon("logo.png");
@@ -653,6 +654,11 @@ public class mainFrame implements ActionListener {
             System.out.println("after des" + deslist.size());//for check
             System.out.println("after drink" + drinklist.size());//for check
             System.out.println("================================");//for check
+        }
+        
+        if(ae.getSource().equals(logout)){
+            fr.dispose();
+            new Login();
         }
     }
      

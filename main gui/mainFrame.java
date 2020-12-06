@@ -468,8 +468,7 @@ public class mainFrame implements ActionListener {
         if (menu.getText().isEmpty() == false) {
             if (menu == ti) {
                 Dessert des = new Dessert("Dessert", "Tiramisu", Integer.parseInt(menu.getText()));
-                if(deslist.contains(des)==false)
-                    deslist.add(des);
+                deslist.add(des);
             } else if (menu == choc) {
                 Dessert des = new Dessert("Dessert", "Chocolate Ball", Integer.parseInt(menu.getText()));
                 deslist.add(des);
@@ -637,58 +636,81 @@ public class mainFrame implements ActionListener {
             addorder(fchoco);
             addorder(fcaram);
             addorder(ffruit); //frappedrink
-            System.out.println("before des" + deslist.size());
-            System.out.println("before drink" + drinklist.size());
+            System.out.println("before des" + deslist.size()); //for check
+            System.out.println("before drink" + drinklist.size()); //for check
             saveDessertdata();
             saveDrinkdata();
+            for(int i = 0;i < deslist.size();i++){//for check
+                des = (Dessert) deslist.get(i);
+                System.out.println(des.getName()+" "+des.getType()+" "+des.getNumbers());
+            }
+            for(int i = 0;i < drinklist.size();i++){//for check
+                drinkmenu = (Drink) drinklist.get(i);
+                System.out.println(drinkmenu.getName()+" "+drinkmenu.getType()+" "+drinkmenu.getNumbers());
+            }
+            deslist = new ArrayList<Dessert>();//เคลียข้อมูลในlistใหม่
+            drinklist = new ArrayList<Drink>();//เคลียข้อมูลในlistใหม่
+            System.out.println("after des" + deslist.size());//for check
+            System.out.println("after drink" + drinklist.size());//for check
+            System.out.println("================================");//for check
         }
     }
-
+     
     public void saveDessertdata() {
-        try {
-            FileInputStream fin = new FileInputStream("DessertData.data");
-            ObjectInputStream in = new ObjectInputStream(fin);
-            deslist = (ArrayList<Dessert>) in.readObject();
-            in.close();
-            fin.close();
-
-        } catch (IOException i) {
-            i.printStackTrace();
-        } catch (ClassNotFoundException c) {
-            c.printStackTrace();
+        File f = new File("DessertData.data");
+        if (f.exists()) {
+            System.out.println("delete");
+            f.delete();
         }
+            try {
+                FileInputStream fin = new FileInputStream("DessertData.data");
+                ObjectInputStream in = new ObjectInputStream(fin);
+                deslist = (ArrayList<Dessert>) in.readObject();
+                in.close();
+                fin.close();
 
+            } catch (IOException i) {
+                System.out.println("create data");
+            } catch (ClassNotFoundException c) {
+                System.out.println("create data");
+            }
+        
         try {
             FileOutputStream fOut = new FileOutputStream("DessertData.data");
             ObjectOutputStream oout = new ObjectOutputStream(fOut);
             oout.writeObject(deslist);
+
             fOut.close();
         } catch (Exception i) {
-            i.printStackTrace();
+            System.out.println("create data");
         }
     }
 
     public void saveDrinkdata() {
-
-        try {
-            FileInputStream fin = new FileInputStream("DrinkData.data");
-            ObjectInputStream in = new ObjectInputStream(fin);
-            drinklist = (ArrayList<Drink>) in.readObject();
-            in.close();
-            fin.close();
-        } catch (IOException i) {
-            i.printStackTrace();
-        } catch (ClassNotFoundException c) {
-            c.printStackTrace();
+        File f = new File("DrinkData.data");
+        if (f.exists()) {
+            f.delete();
         }
-
+            try {
+                FileInputStream fin = new FileInputStream("DrinkData.data");
+                ObjectInputStream in = new ObjectInputStream(fin);
+                drinklist = (ArrayList<Drink>) in.readObject();
+                in.close();
+                fin.close();
+            } catch (IOException i) {
+                System.out.println("create data");
+            } catch (ClassNotFoundException c) {
+                System.out.println("create data");
+            }
+        
         try {
             FileOutputStream fOut = new FileOutputStream("DrinkData.data");
             ObjectOutputStream oout = new ObjectOutputStream(fOut);
             oout.writeObject(drinklist);
+
             fOut.close();
         } catch (Exception i) {
-            i.printStackTrace();
+            System.out.println("create data");
         }
     }
 

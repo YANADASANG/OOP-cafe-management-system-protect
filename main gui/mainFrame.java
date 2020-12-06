@@ -464,16 +464,16 @@ public class mainFrame implements ActionListener {
 
     }
 
-    public void addorder(JTextField menu) {
+   public void addorder(JTextField menu) {
         if (menu.getText().isEmpty() == false) {
             if (menu == ti) {
-                Dessert des = new Dessert("Dessert", "Tiramisu", Integer.parseInt(menu.getText()));
+                Dessert des = new Dessert("Dessert", "Tiramisu\t", Integer.parseInt(menu.getText()));
                 deslist.add(des);
             } else if (menu == choc) {
-                Dessert des = new Dessert("Dessert", "Chocolate Ball", Integer.parseInt(menu.getText()));
+                Dessert des = new Dessert("Dessert", "Chocolate Ball\t", Integer.parseInt(menu.getText()));
                 deslist.add(des);
             } else if (menu == ban) {
-                Dessert des = new Dessert("Dessert", "Banoffee", Integer.parseInt(menu.getText()));
+                Dessert des = new Dessert("Dessert", "Banoffee\t", Integer.parseInt(menu.getText()));
                 deslist.add(des);
             } else if (menu == str) {
                 Dessert des = new Dessert("Dessert", "Strawberry Cheesecake", Integer.parseInt(menu.getText()));
@@ -482,112 +482,112 @@ public class mainFrame implements ActionListener {
                 Dessert des = new Dessert("Dessert", "Blueberry Cheesecake", Integer.parseInt(menu.getText()));
                 deslist.add(des);
             } else if (menu == tof) {
-                Dessert des = new Dessert("Dessert", "Toffee Nut", Integer.parseInt(menu.getText()));
+                Dessert des = new Dessert("Dessert", "Toffee Nut\t", Integer.parseInt(menu.getText()));
                 deslist.add(des);
             } else if (menu == coco) {
                 Dessert des = new Dessert("Dessert", "Coconut Layers", Integer.parseInt(menu.getText()));
                 deslist.add(des);
             } else if (menu == red) {
-                Dessert des = new Dessert("Dessert", "Red Velvet", Integer.parseInt(menu.getText()));
+                Dessert des = new Dessert("Dessert", "Red Velvet\t", Integer.parseInt(menu.getText()));
                 deslist.add(des);
             } else if (menu == brown) {
-                Dessert des = new Dessert("Dessert", "Brownie", Integer.parseInt(menu.getText()));
+                Dessert des = new Dessert("Dessert", "Brownie\t", Integer.parseInt(menu.getText()));
                 deslist.add(des);
             } else if (menu == eg) {
-                Dessert des = new Dessert("Dessert", "Egg Tart", Integer.parseInt(menu.getText()));
+                Dessert des = new Dessert("Dessert", "Egg Tart\t", Integer.parseInt(menu.getText()));
                 deslist.add(des);
             } //dessert
             else if (menu == hess) {
-                Drink drinkmenu = new Drink("Hot", "Esspresso", Integer.parseInt(menu.getText()));
+                Drink drinkmenu = new Drink("Hot", "Esspresso\t", Integer.parseInt(menu.getText()));
                 drinklist.add(drinkmenu);
             } else if (menu == hlatt) {
-                Drink drinkmenu = new Drink("Hot", "Latte", Integer.parseInt(menu.getText()));
+                Drink drinkmenu = new Drink("Hot", "Latte\t", Integer.parseInt(menu.getText()));
                 drinklist.add(drinkmenu);
             } else if (menu == hcappu) {
-                Drink drinkmenu = new Drink("Hot", "Cappucino", Integer.parseInt(menu.getText()));
+                Drink drinkmenu = new Drink("Hot", "Cappucino\t", Integer.parseInt(menu.getText()));
                 drinklist.add(drinkmenu);
             } else if (menu == hamer) {
-                Drink drinkmenu = new Drink("Hot", "Americano", Integer.parseInt(menu.getText()));
+                Drink drinkmenu = new Drink("Hot", "Americano\t", Integer.parseInt(menu.getText()));
                 drinklist.add(drinkmenu);
             } else if (menu == hmoch) {
-                Drink drinkmenu = new Drink("Hot", "Mocha", Integer.parseInt(menu.getText()));
+                Drink drinkmenu = new Drink("Hot", "Mocha\t", Integer.parseInt(menu.getText()));
                 drinklist.add(drinkmenu);
             } else if (menu == hmat) {
-                Drink drinkmenu = new Drink("Hot", "Matcha", Integer.parseInt(menu.getText()));
+                Drink drinkmenu = new Drink("Hot", "Matcha\t", Integer.parseInt(menu.getText()));
                 drinklist.add(drinkmenu);
             } else if (menu == hblack) {
-                Drink drinkmenu = new Drink("Hot", "Black Tea", Integer.parseInt(menu.getText()));
+                Drink drinkmenu = new Drink("Hot", "Black Tea\t", Integer.parseInt(menu.getText()));
                 drinklist.add(drinkmenu);
             } else if (menu == hchoco) {
-                Drink drinkmenu = new Drink("Hot", "Chocolate", Integer.parseInt(menu.getText()));
+                Drink drinkmenu = new Drink("Hot", "Chocolate\t", Integer.parseInt(menu.getText()));
                 drinklist.add(drinkmenu);
             } else if (menu == hcaram) {
                 Drink drinkmenu = new Drink("Hot", "Caramel Macchiato", Integer.parseInt(menu.getText()));
                 drinklist.add(drinkmenu);
             } else if (menu == hfruit) {
-                Drink drinkmenu = new Drink("Hot", "Fruit Tea", Integer.parseInt(menu.getText()));
+                Drink drinkmenu = new Drink("Hot", "Fruit Tea\t", Integer.parseInt(menu.getText()));
                 drinklist.add(drinkmenu);
             } //hotdrink
             else if (menu == iess) {
-                Drink drinkmenu = new Drink("Ice", "Esspresso", Integer.parseInt(menu.getText()));
+                Drink drinkmenu = new Drink("Ice", "Esspresso\t", Integer.parseInt(menu.getText()));
                 drinklist.add(drinkmenu);
             } else if (menu == ilatt) {
-                Drink drinkmenu = new Drink("Ice", "Latte", Integer.parseInt(menu.getText()));
+                Drink drinkmenu = new Drink("Ice", "Latte\t", Integer.parseInt(menu.getText()));
                 drinklist.add(drinkmenu);
             } else if (menu == icappu) {
-                Drink drinkmenu = new Drink("Ice", "Cappucino", Integer.parseInt(menu.getText()));
+                Drink drinkmenu = new Drink("Ice", "Cappucino\t", Integer.parseInt(menu.getText()));
                 drinklist.add(drinkmenu);
             } else if (menu == iamer) {
-                Drink drinkmenu = new Drink("Ice", "Americano", Integer.parseInt(menu.getText()));
+                Drink drinkmenu = new Drink("Ice", "Americano\t", Integer.parseInt(menu.getText()));
                 drinklist.add(drinkmenu);
             } else if (menu == imoch) {
-                Drink drinkmenu = new Drink("Ice", "Mocha", Integer.parseInt(menu.getText()));
+                Drink drinkmenu = new Drink("Ice", "Mocha\t", Integer.parseInt(menu.getText()));
                 drinklist.add(drinkmenu);
             } else if (menu == imat) {
-                Drink drinkmenu = new Drink("Ice", "Matcha", Integer.parseInt(menu.getText()));
+                Drink drinkmenu = new Drink("Ice", "Matcha\t", Integer.parseInt(menu.getText()));
                 drinklist.add(drinkmenu);
             } else if (menu == iblack) {
-                Drink drinkmenu = new Drink("Ice", "Black Tea", Integer.parseInt(menu.getText()));
+                Drink drinkmenu = new Drink("Ice", "Black Tea\t", Integer.parseInt(menu.getText()));
                 drinklist.add(drinkmenu);
             } else if (menu == ichoco) {
-                Drink drinkmenu = new Drink("Ice", "Chocolate", Integer.parseInt(menu.getText()));
+                Drink drinkmenu = new Drink("Ice", "Chocolate\t", Integer.parseInt(menu.getText()));
                 drinklist.add(drinkmenu);
             } else if (menu == icaram) {
                 Drink drinkmenu = new Drink("Ice", "Caramel Macchiato", Integer.parseInt(menu.getText()));
                 drinklist.add(drinkmenu);
             } else if (menu == ifruit) {
-                Drink drinkmenu = new Drink("Ice", "Fruit Tea", Integer.parseInt(menu.getText()));
+                Drink drinkmenu = new Drink("Ice", "Fruit Tea\t", Integer.parseInt(menu.getText()));
                 drinklist.add(drinkmenu);
             } //icedrink
             else if (menu == fess) {
-                Drink drinkmenu = new Drink("Frappe", "Esspresso", Integer.parseInt(menu.getText()));
+                Drink drinkmenu = new Drink("Frappe", "Esspresso\t", Integer.parseInt(menu.getText()));
                 drinklist.add(drinkmenu);
             } else if (menu == flatt) {
-                Drink drinkmenu = new Drink("Frappe", "Latte", Integer.parseInt(menu.getText()));
+                Drink drinkmenu = new Drink("Frappe", "Latte\t", Integer.parseInt(menu.getText()));
                 drinklist.add(drinkmenu);
             } else if (menu == fcappu) {
-                Drink drinkmenu = new Drink("Frappe", "Cappucino", Integer.parseInt(menu.getText()));
+                Drink drinkmenu = new Drink("Frappe", "Cappucino\t", Integer.parseInt(menu.getText()));
                 drinklist.add(drinkmenu);
             } else if (menu == famer) {
-                Drink drinkmenu = new Drink("Frappe", "Americano", Integer.parseInt(menu.getText()));
+                Drink drinkmenu = new Drink("Frappe", "Americano\t", Integer.parseInt(menu.getText()));
                 drinklist.add(drinkmenu);
             } else if (menu == fmoch) {
-                Drink drinkmenu = new Drink("Frappe", "Mocha", Integer.parseInt(menu.getText()));
+                Drink drinkmenu = new Drink("Frappe", "Mocha\t", Integer.parseInt(menu.getText()));
                 drinklist.add(drinkmenu);
             } else if (menu == fmat) {
-                Drink drinkmenu = new Drink("Frappe", "Matcha", Integer.parseInt(menu.getText()));
+                Drink drinkmenu = new Drink("Frappe", "Matcha\t", Integer.parseInt(menu.getText()));
                 drinklist.add(drinkmenu);
             } else if (menu == fblack) {
-                Drink drinkmenu = new Drink("Frappe", "Black Tea", Integer.parseInt(menu.getText()));
+                Drink drinkmenu = new Drink("Frappe", "Black Tea\t", Integer.parseInt(menu.getText()));
                 drinklist.add(drinkmenu);
             } else if (menu == fchoco) {
-                Drink drinkmenu = new Drink("Frappe", "Chocolate", Integer.parseInt(menu.getText()));
+                Drink drinkmenu = new Drink("Frappe", "Chocolate\t", Integer.parseInt(menu.getText()));
                 drinklist.add(drinkmenu);
             } else if (menu == fcaram) {
                 Drink drinkmenu = new Drink("Frappe", "Caramel Macchiato", Integer.parseInt(menu.getText()));
                 drinklist.add(drinkmenu);
             } else if (menu == ffruit) {
-                Drink drinkmenu = new Drink("Frappe", "Fruit Tea", Integer.parseInt(menu.getText()));
+                Drink drinkmenu = new Drink("Frappe", "Fruit Tea\t", Integer.parseInt(menu.getText()));
                 drinklist.add(drinkmenu);
             }
         }//if

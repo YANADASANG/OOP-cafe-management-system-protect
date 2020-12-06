@@ -63,8 +63,8 @@ public class Login implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        username = "username";
-        password = "password";
+        username = "cashier1";
+        password = "1234";
         if((e.getSource().equals(but))){
             if((username.equals(usernametf1.getText()+""))&&(password.equals(passwordtf2.getText()+""))){
             new mainFrame();
@@ -72,9 +72,13 @@ public class Login implements ActionListener {
             }
             else if(!(username.equals(usernametf1.getText()+""))){
                 JOptionPane.showMessageDialog(null, "invalid username.", "", JOptionPane.WARNING_MESSAGE);
+                usernametf1.setText("");
+                passwordtf2.setText("");
             }
             else if(!(password.equals(passwordtf2.getText()+""))){
                 JOptionPane.showMessageDialog(null, "invalid password.", "", JOptionPane.WARNING_MESSAGE);
+                usernametf1.setText("");
+                passwordtf2.setText("");
             }
         }
     }

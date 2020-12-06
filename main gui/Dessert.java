@@ -12,8 +12,8 @@ import java.io.Serializable;
  * @author annie
  */
 public class Dessert extends Order implements Serializable{
-    public Dessert(String type,String name,int numbers) {
-        super(type, name,numbers);
+    public Dessert(String type,String name,int numbers,int prices) {
+        super(type, name,numbers,prices);
     }
-    
+
 }

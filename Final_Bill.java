@@ -61,7 +61,7 @@ public class Final_Bill implements ActionListener, WindowListener {
         }
         if(ae.getSource().equals(bn2)){
             fr.dispose();
-            new printed();
+            new Printed();
         }
     }
 
@@ -101,9 +101,6 @@ public class Final_Bill implements ActionListener, WindowListener {
                     ta.append(" "+des.getName() + "\t" + des.getType() + "\t" + des.getNumbers()+ "\t" +(des.getPrices()*des.getNumbers()) +"\n");
                     System.out.println(des.getName() + " " + des.getType() + " " + des.getNumbers() + " " + des.getPrices());
                 }
-                ta.append("\t\tTotal\t"+String.valueOf(calcu)+"\n");
-                ta.append("\t\tVat7%\t"+String.valueOf(calcu*7/100)+"\n");
-                ta.append("\t\tTotal_all\t"+String.valueOf(calcu+(calcu*7/100))+"\n");
 
             } catch (IOException i) {
                 i.printStackTrace();
@@ -112,8 +109,10 @@ public class Final_Bill implements ActionListener, WindowListener {
             }
         }
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("\t        dd/MM/yyyy                     HH:mm:ss");
-        ta.append("=======================================================\n\n");
-        ta.append("For Price Calculate\n");
+        ta.append("=======================================================\n");
+        ta.append("\t\t\tTotal\t"+String.valueOf(calcu)+"\n");
+        ta.append("\t\t\tVat7%\t"+String.valueOf(calcu*7/100)+"\n");
+        ta.append("\t\t\tTotal_all\t"+String.valueOf(calcu+(calcu*7/100))+"\n");
         ta.append("=======================================================\n");
         ta.append("\n\n"+dtf.format(LocalDateTime.now())+"\n\n");
         ta.append("\t\tTHANK YOU");

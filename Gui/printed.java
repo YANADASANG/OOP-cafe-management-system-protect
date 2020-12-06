@@ -37,6 +37,7 @@ public class printed implements ActionListener{
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        
+        fr.dispose();
+        new mainFrame();
     }
 }

@@ -814,7 +814,6 @@ public class mainFrame extends Thread implements ActionListener, WindowListener 
                     showdrink.add(drinkmenu);
                 }
             }//lastelse
-
     }
 
     @Override

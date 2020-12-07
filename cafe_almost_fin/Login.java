@@ -12,7 +12,8 @@ import java.net.URL;
 import javax.swing.*;
 
 public class Login implements ActionListener {
-    public int show = 0; 
+
+    public int show = 0;
     private JFrame fr;
     private JPanel pl, pl2, pl3;
     private JTextField usernametf1, passwordtf2;
@@ -52,7 +53,7 @@ public class Login implements ActionListener {
         pl3.add(but);
         pl2.add(pl3);
         fr.add(pl2);
-        
+
         fr.setSize(500, 300);
         fr.setLocation(600, 450);
 
@@ -60,14 +61,14 @@ public class Login implements ActionListener {
 
     }
 
-
     @Override
     public void actionPerformed(ActionEvent e) {
         username = "username";
         password = "password";
         if ((e.getSource().equals(but))) {
             if ((username.equals(usernametf1.getText() + "")) && (password.equals(passwordtf2.getText() + ""))) {
-                new mainFrame(0);
+                mainFrame m = new mainFrame(0);
+                m.start();
                 fr.dispose();
             } else if (!(username.equals(usernametf1.getText() + ""))) {
                 JOptionPane.showMessageDialog(null, "invalid username.", "", JOptionPane.WARNING_MESSAGE);

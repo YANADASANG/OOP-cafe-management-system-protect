@@ -60,7 +60,8 @@ public class Final_Bill implements ActionListener, WindowListener {
     public void actionPerformed(ActionEvent ae) {
         if (ae.getSource().equals(bn1)) {
             fr.dispose();
-            new mainFrame(1);
+            mainFrame m = new mainFrame(1);
+            m.start();
         }
         if (ae.getSource().equals(bn2)) {
             fr.dispose();
@@ -146,7 +147,4 @@ public class Final_Bill implements ActionListener, WindowListener {
     public void windowDeactivated(WindowEvent e) {
     }
 
-    public static void main(String[] args) {
-        new Final_Bill();
-    }
 }

@@ -468,7 +468,6 @@ public class mainFrame extends Thread implements ActionListener, WindowListener 
         fr.addWindowListener(this);
         fr.pack();
         fr.setVisible(true);
-        System.out.println(show);
 
     }
 
@@ -865,7 +864,6 @@ public class mainFrame extends Thread implements ActionListener, WindowListener 
             saveDrinkdata();
             deslist = new ArrayList<Dessert>();//เคลียข้อมูลในlistใหม่
             drinklist = new ArrayList<Drink>();//เคลียข้อมูลในlistใหม่
-            System.out.println("================================");//for check
             fr.dispose();
             new Final_Bill();
         }
@@ -1238,14 +1236,12 @@ public class mainFrame extends Thread implements ActionListener, WindowListener 
                 for (int i = 0; i < showdes.size(); i++) {//for check
                     des = (Dessert) showdes.get(i);
                     calcu += des.getPrices() * des.getNumbers();
-                    System.out.println(des.getName() + " " + des.getType() + " " + des.getNumbers() + " " + des.getPrices());
                 }
                 cal_dessert.setText(Integer.toString(calcu));
                 int save = calcu;
                 for (int i = 0; i < showdrink.size(); i++) {//for check
                     drinkmenu = (Drink) showdrink.get(i);
                     calcu += drinkmenu.getPrices() * drinkmenu.getNumbers();
-                    System.out.println(drinkmenu.getName() + " " + drinkmenu.getType() + " " + drinkmenu.getNumbers() + " " + drinkmenu.getPrices());
                 }
                 cal_drink.setText(Integer.toString(calcu - save));
                 vat7.setText(Integer.toString(calcu * 7 / 100));

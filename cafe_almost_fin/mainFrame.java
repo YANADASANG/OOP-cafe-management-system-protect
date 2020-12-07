@@ -17,6 +17,7 @@ public class mainFrame extends Thread implements ActionListener, WindowListener 
 
     public int show;
     public int close = 0;
+    private int sum;
     private JFrame fr;
     private JPanel title_bar, menu, cal, blank1, blank2, blank3, cal1, cal2, drink, dessert;
     private JTextField cal_drink, cal_dessert, vat7, last;
@@ -472,7 +473,7 @@ public class mainFrame extends Thread implements ActionListener, WindowListener 
     }
 
     public void addorder(JTextField menu) {
-        if (menu.getText().isEmpty() == false) {
+        if (menu.getText().isEmpty() == false && menu.getText().equals("0")==false) {
             if (menu == ti) {
                 Dessert des = new Dessert("Dessert", "Tiramisu\t", Integer.parseInt(menu.getText()), Integer.parseInt("60"), 1);
                 deslist.add(des);
@@ -597,7 +598,6 @@ public class mainFrame extends Thread implements ActionListener, WindowListener 
                 Drink drinkmenu = new Drink("Frappe", "Fruit Tea\t", Integer.parseInt(menu.getText()), Integer.parseInt("55"), 40);
                 drinklist.add(drinkmenu);
             }
-
         }//if
     }
 
@@ -1017,7 +1017,6 @@ public class mainFrame extends Thread implements ActionListener, WindowListener 
     @Override
     public void actionPerformed(ActionEvent ae) {
         if (ae.getSource().equals(confirm)) {
-            int print = 1;
             addorder(ti);
             addorder(choc);
             addorder(ban);
@@ -1062,11 +1061,12 @@ public class mainFrame extends Thread implements ActionListener, WindowListener 
             saveDrinkdata();
             deslist = new ArrayList<Dessert>();//เคลียข้อมูลในlistใหม่
             drinklist = new ArrayList<Drink>();//เคลียข้อมูลในlistใหม่
-            fr.dispose();
-            new Final_Bill();
+            if (sum > 0) {
+                fr.dispose();
+                new Final_Bill();
+            }
         }
         if (ae.getSource().equals(logout)) {
-            System.out.println("out");
             fr.dispose();
             new Login();
         }
@@ -1175,10 +1175,11 @@ public class mainFrame extends Thread implements ActionListener, WindowListener 
                     drinkmenu = (Drink) showdrink.get(i);
                     calcu += drinkmenu.getPrices() * drinkmenu.getNumbers();
                 }
+                sum = calcu;
                 cal_drink.setText(Integer.toString(calcu - save));
                 vat7.setText(Integer.toString(calcu * 7 / 100));
                 last.setText(Integer.toString(calcu + (calcu * 7 / 100)));
-                Thread.sleep(1000);
+                Thread.sleep(500);
             }
         } catch (InterruptedException e) {
         }

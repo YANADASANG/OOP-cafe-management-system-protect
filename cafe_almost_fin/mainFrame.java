@@ -605,7 +605,6 @@ public class mainFrame extends Thread implements ActionListener, WindowListener 
         int number ;
         if (menu.getText().isEmpty() == false) {
             number = Integer.parseInt(menu.getText());
-            System.out.println(number);
         }
         else{
             number = 0;
@@ -925,7 +924,6 @@ public class mainFrame extends Thread implements ActionListener, WindowListener 
         File f = new File("DessertData.data");
         if (f.exists()) {
             f.delete();
-            System.out.println("delete");
         }
         try {
             FileOutputStream fOut = new FileOutputStream("DessertData.data");
@@ -941,7 +939,6 @@ public class mainFrame extends Thread implements ActionListener, WindowListener 
     public void saveDrinkdata() {
         File f = new File("DrinkData.data");
         if (f.exists()) {
-            System.out.println("delete frink");
             f.delete();
         }
 

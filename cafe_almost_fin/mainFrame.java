@@ -473,7 +473,7 @@ public class mainFrame extends Thread implements ActionListener, WindowListener 
     }
 
     public void addorder(JTextField menu) {
-        if (menu.getText().isEmpty() == false && menu.getText().equals("0")==false) {
+        if (menu.getText().isEmpty() == false && menu.getText().equals("0")==false&& isdigit(menu.getText())==true) {
             if (menu == ti) {
                 Dessert des = new Dessert("Dessert", "Tiramisu\t", Integer.parseInt(menu.getText()), Integer.parseInt("60"), 1);
                 deslist.add(des);
@@ -603,7 +603,7 @@ public class mainFrame extends Thread implements ActionListener, WindowListener 
 
     public void keeporder(JTextField menu) {
         int number;
-        if (menu.getText().isEmpty() == false) {
+        if (menu.getText().isEmpty() == false && isdigit(menu.getText())==true) {
             number = Integer.parseInt(menu.getText());
         } else {
             number = 0;
@@ -1012,6 +1012,16 @@ public class mainFrame extends Thread implements ActionListener, WindowListener 
                 System.out.print("");
 
         }//switch   
+    }
+    
+    public boolean isdigit(String check){
+        boolean numeric = true;
+        try {
+            Double num = Double.parseDouble(check);
+        } catch (NumberFormatException e) {
+            numeric = false;
+        }
+        return numeric;
     }
 
     @Override

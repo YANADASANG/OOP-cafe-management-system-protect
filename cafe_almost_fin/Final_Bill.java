@@ -81,9 +81,11 @@ public class Final_Bill implements ActionListener, WindowListener {
                 fin.close();
                 for (int i = 0; i < drinklist.size(); i++) {//for check
                     drinkmenu = (Drink) drinklist.get(i);
-                    calcu += drinkmenu.getPrices() * drinkmenu.getNumbers();
-                    ta.append(" " + drinkmenu.getName() + "\t" + drinkmenu.getType() + "\t" + drinkmenu.getNumbers() + "\t" + (drinkmenu.getPrices() * drinkmenu.getNumbers()) + "\n");
-                    System.out.println(drinkmenu.getName() + " " + drinkmenu.getType() + " " + drinkmenu.getNumbers() + " " + drinkmenu.getPrices());
+                    if (drinkmenu.getNumbers() > 0) {
+                        calcu += drinkmenu.getPrices() * drinkmenu.getNumbers();
+                        ta.append(" " + drinkmenu.getName() + "\t" + drinkmenu.getType() + "\t" + drinkmenu.getNumbers() + "\t" + (drinkmenu.getPrices() * drinkmenu.getNumbers()) + "\n");
+                        System.out.println(drinkmenu.getName() + " " + drinkmenu.getType() + " " + drinkmenu.getNumbers() + " " + drinkmenu.getPrices());
+                    }
                 }
             } catch (IOException i) {
                 i.printStackTrace();
@@ -101,9 +103,11 @@ public class Final_Bill implements ActionListener, WindowListener {
                 fin.close();
                 for (int i = 0; i < deslist.size(); i++) {//for check
                     des = (Dessert) deslist.get(i);
-                    calcu += des.getPrices() * des.getNumbers();
-                    ta.append(" " + des.getName() + "\t" + des.getType() + "\t" + des.getNumbers() + "\t" + (des.getPrices() * des.getNumbers()) + "\n");
-                    System.out.println(des.getName() + " " + des.getType() + " " + des.getNumbers() + " " + des.getPrices());
+                    if (des.getNumbers() > 0) {
+                        calcu += des.getPrices() * des.getNumbers();
+                        ta.append(" " + des.getName() + "\t" + des.getType() + "\t" + des.getNumbers() + "\t" + (des.getPrices() * des.getNumbers()) + "\n");
+                        System.out.println(des.getName() + " " + des.getType() + " " + des.getNumbers() + " " + des.getPrices());
+                    }
                 }
             } catch (IOException i) {
                 i.printStackTrace();

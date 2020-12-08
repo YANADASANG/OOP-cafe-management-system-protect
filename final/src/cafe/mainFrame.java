@@ -29,8 +29,6 @@ public class mainFrame extends Thread implements ActionListener, WindowListener 
     private Dessert des;
     private Drink drinkmenu;
 
-    private ArrayList<Dessert> showdes = new ArrayList<Dessert>();
-    private ArrayList<Drink> showdrink = new ArrayList<Drink>();
     private ArrayList<Dessert> deslist = new ArrayList<Dessert>();
     private ArrayList<Drink> drinklist = new ArrayList<Drink>();
 
@@ -479,7 +477,7 @@ public class mainFrame extends Thread implements ActionListener, WindowListener 
     }
 
     public void addorder(JTextField menu) {
-        if (menu.getText().isEmpty() == false && menu.getText().equals("0")==false&& isdigit(menu.getText())==true) {
+        if (menu.getText().isEmpty() == false && menu.getText().equals("0") == false && isdigit(menu.getText()) == true) {
             if (menu == ti) {
                 Dessert des = new Dessert("Dessert", "Tiramisu\t", Integer.parseInt(menu.getText()), Integer.parseInt("60"), 1);
                 deslist.add(des);
@@ -607,261 +605,104 @@ public class mainFrame extends Thread implements ActionListener, WindowListener 
         }//if
     }
 
-    public void keeporder(JTextField menu) {
-        int number;
-        if (menu.getText().isEmpty() == false && isdigit(menu.getText())==true) {
+    public int keeporder(JTextField menu) {
+        int number = 0;
+        if (menu.getText().isEmpty() == false && isdigit(menu.getText()) == true && menu.getText().equals("0") == false) {
             number = Integer.parseInt(menu.getText());
-        } else {
-            number = 0;
         }
         if (menu == ti) {
-            Dessert des = new Dessert("Dessert", "Tiramisu\t", number, Integer.parseInt("60"), 1);
-            if (checkDes(des) == 1) {
-                showdes.add(des);
-            }
+            return number * 60;
         } else if (menu == choc) {
-            Dessert des = new Dessert("Dessert", "Chocolate Ball\t", number, Integer.parseInt("40"), 2);
-            if (checkDes(des) == 1) {
-                showdes.add(des);
-            }
+            return number * 40;
         } else if (menu == ban) {
-            Dessert des = new Dessert("Dessert", "Banoffee\t", number, Integer.parseInt("45"), 3);
-            if (checkDes(des) == 1) {
-                showdes.add(des);
-            }
+            return number * 45;
         } else if (menu == str) {
-            Dessert des = new Dessert("Dessert", "Strawberry Cheesecake", number, Integer.parseInt("70"), 4);
-            if (checkDes(des) == 1) {
-                showdes.add(des);
-            }
+            return number * 70;
         } else if (menu == blu) {
-            Dessert des = new Dessert("Dessert", "Blueberry Cheesecake", number, Integer.parseInt("60"), 5);
-            if (checkDes(des) == 1) {
-                showdes.add(des);
-            }
+            return number * 60;
         } else if (menu == tof) {
-            Dessert des = new Dessert("Dessert", "Toffee Nut\t", number, Integer.parseInt("80"), 6);
-            if (checkDes(des) == 1) {
-                showdes.add(des);
-            }
+            return number * 80;
         } else if (menu == coco) {
-            Dessert des = new Dessert("Dessert", "Coconut Layers", number, Integer.parseInt("60"), 7);
-            if (checkDes(des) == 1) {
-                showdes.add(des);
-            }
+            return number * 60;
         } else if (menu == red) {
-            Dessert des = new Dessert("Dessert", "Red Velvet\t", number, Integer.parseInt("80"), 8);
-            if (checkDes(des) == 1) {
-                showdes.add(des);
-            }
+            return number * 80;
         } else if (menu == brown) {
-            Dessert des = new Dessert("Dessert", "Brownie\t", number, Integer.parseInt("50"), 9);
-            if (checkDes(des) == 1) {
-                showdes.add(des);
-            }
+            return number * 50;
         } else if (menu == eg) {
-            Dessert des = new Dessert("Dessert", "Egg Tart\t", number, Integer.parseInt("55"), 10);
-            if (checkDes(des) == 1) {
-                showdes.add(des);
-            }
+            return number * 55;
         } //dessert
         else if (menu == hess) {
-            Drink drinkmenu = new Drink("Hot", "Esspresso\t", number, Integer.parseInt("40"), 11);
-            if (checkDrink(drinkmenu) == 1) {
-                showdrink.add(drinkmenu);
-            }
+            return number * 40;
         } else if (menu == hlatt) {
-            Drink drinkmenu = new Drink("Hot", "Latte\t", number, Integer.parseInt("40"), 12);
-            if (checkDrink(drinkmenu) == 1) {
-                showdrink.add(drinkmenu);
-            }
+            return number * 40;
         } else if (menu == hcappu) {
-            Drink drinkmenu = new Drink("Hot", "Cappucino\t", number, Integer.parseInt("40"), 13);
-            if (checkDrink(drinkmenu) == 1) {
-                showdrink.add(drinkmenu);
-            }
+            return number * 40;
         } else if (menu == hamer) {
-            Drink drinkmenu = new Drink("Hot", "Americano\t", number, Integer.parseInt("40"), 14);
-            if (checkDrink(drinkmenu) == 1) {
-                showdrink.add(drinkmenu);
-            }
+            return number * 40;
         } else if (menu == hmoch) {
-            Drink drinkmenu = new Drink("Hot", "Mocha\t", number, Integer.parseInt("40"), 15);
-            if (checkDrink(drinkmenu) == 1) {
-                showdrink.add(drinkmenu);
-            }
+            return number * 40;
         } else if (menu == hmat) {
-            Drink drinkmenu = new Drink("Hot", "Matcha\t", number, Integer.parseInt("50"), 16);
-            if (checkDrink(drinkmenu) == 1) {
-                showdrink.add(drinkmenu);
-            }
+            return number * 50;
         } else if (menu == hblack) {
-            Drink drinkmenu = new Drink("Hot", "Black Tea\t", number, Integer.parseInt("45"), 17);
-            if (checkDrink(drinkmenu) == 1) {
-                showdrink.add(drinkmenu);
-            }
+            return number * 45;
         } else if (menu == hchoco) {
-            Drink drinkmenu = new Drink("Hot", "Chocolate\t", number, Integer.parseInt("45"), 18);
-            if (checkDrink(drinkmenu) == 1) {
-                showdrink.add(drinkmenu);
-            }
+            return number * 45;
         } else if (menu == hcaram) {
-            Drink drinkmenu = new Drink("Hot", "Caramel Macchiato", number, Integer.parseInt("40"), 19);
-            if (checkDrink(drinkmenu) == 1) {
-                showdrink.add(drinkmenu);
-            }
+            return number * 40;
         } else if (menu == hfruit) {
-            Drink drinkmenu = new Drink("Hot", "Fruit Tea\t", number, Integer.parseInt("40"), 20);
-            if (checkDrink(drinkmenu) == 1) {
-                showdrink.add(drinkmenu);
-            }
+            return number * 40;
         } //hotdrink
         else if (menu == iess) {
-            Drink drinkmenu = new Drink("Ice", "Esspresso\t", number, Integer.parseInt("50"), 21);
-            if (checkDrink(drinkmenu) == 1) {
-                showdrink.add(drinkmenu);
-            }
+            return number * 50;
         } else if (menu == ilatt) {
-            Drink drinkmenu = new Drink("Ice", "Latte\t", number, Integer.parseInt("50"), 22);
-            if (checkDrink(drinkmenu) == 1) {
-                showdrink.add(drinkmenu);
-            }
+            return number * 50;
         } else if (menu == icappu) {
-            Drink drinkmenu = new Drink("Ice", "Cappucino\t", number, Integer.parseInt("50"), 23);
-            if (checkDrink(drinkmenu) == 1) {
-                showdrink.add(drinkmenu);
-            }
+            return number * 50;
         } else if (menu == iamer) {
-            Drink drinkmenu = new Drink("Ice", "Americano\t", number, Integer.parseInt("50"), 24);
-            if (checkDrink(drinkmenu) == 1) {
-                showdrink.add(drinkmenu);
-            }
+            return number * 50;
         } else if (menu == imoch) {
-            Drink drinkmenu = new Drink("Ice", "Mocha\t", number, Integer.parseInt("50"), 25);
-            if (checkDrink(drinkmenu) == 1) {
-                showdrink.add(drinkmenu);
-            }
+            return number * 50;
         } else if (menu == imat) {
-            Drink drinkmenu = new Drink("Ice", "Matcha\t", number, Integer.parseInt("55"), 26);
-            if (checkDrink(drinkmenu) == 1) {
-                showdrink.add(drinkmenu);
-            }
+            return number * 55;
         } else if (menu == iblack) {
-            Drink drinkmenu = new Drink("Ice", "Black Tea\t", number, Integer.parseInt("55"), 27);
-            if (checkDrink(drinkmenu) == 1) {
-                showdrink.add(drinkmenu);
-            }
+            return number * 55;
         } else if (menu == ichoco) {
-            Drink drinkmenu = new Drink("Ice", "Chocolate\t", number, Integer.parseInt("50"), 28);
-            if (checkDrink(drinkmenu) == 1) {
-                showdrink.add(drinkmenu);
-            }
+            return number * 50;
         } else if (menu == icaram) {
-            Drink drinkmenu = new Drink("Ice", "Caramel Macchiato", number, Integer.parseInt("40"), 29);
-            if (checkDrink(drinkmenu) == 1) {
-                showdrink.add(drinkmenu);
-            }
+            return number * 55;
         } else if (menu == ifruit) {
-            Drink drinkmenu = new Drink("Ice", "Fruit Tea\t", number, Integer.parseInt("50"), 30);
-            if (checkDrink(drinkmenu) == 1) {
-                showdrink.add(drinkmenu);
-            }
+            return number * 50;
         } //icedrink
         else if (menu == fess) {
-            Drink drinkmenu = new Drink("Frappe", "Esspresso\t", number, Integer.parseInt("55"), 31);
-            if (checkDrink(drinkmenu) == 1) {
-                showdrink.add(drinkmenu);
-            }
+            return number * 55;
         } else if (menu == flatt) {
-            Drink drinkmenu = new Drink("Frappe", "Latte\t", number, Integer.parseInt("55"), 32);
-            if (checkDrink(drinkmenu) == 1) {
-                showdrink.add(drinkmenu);
-            }
+            return number * 55;
         } else if (menu == fcappu) {
-            Drink drinkmenu = new Drink("Frappe", "Cappucino\t", number, Integer.parseInt("60"), 33);
-            if (checkDrink(drinkmenu) == 1) {
-                showdrink.add(drinkmenu);
-            }
+            return number * 60;
         } else if (menu == famer) {
-            Drink drinkmenu = new Drink("Frappe", "Americano\t", number, Integer.parseInt("60"), 34);
-            if (checkDrink(drinkmenu) == 1) {
-                showdrink.add(drinkmenu);
-            }
+            return number * 60;
         } else if (menu == fmoch) {
-            Drink drinkmenu = new Drink("Frappe", "Mocha\t", number, Integer.parseInt("60"), 35);
-            if (checkDrink(drinkmenu) == 1) {
-                showdrink.add(drinkmenu);
-            }
+            return number * 60;
         } else if (menu == fmat) {
-            Drink drinkmenu = new Drink("Frappe", "Matcha\t", number, Integer.parseInt("60"), 36);
-            if (checkDrink(drinkmenu) == 1) {
-                showdrink.add(drinkmenu);
-            }
+            return number * 60;
         } else if (menu == fblack) {
-            Drink drinkmenu = new Drink("Frappe", "Black Tea\t", number, Integer.parseInt("60"), 37);
-            if (checkDrink(drinkmenu) == 1) {
-                showdrink.add(drinkmenu);
-            }
+            return number * 60;
         } else if (menu == fchoco) {
-            Drink drinkmenu = new Drink("Frappe", "Chocolate\t", number, Integer.parseInt("60"), 38);
-            if (checkDrink(drinkmenu) == 1) {
-                showdrink.add(drinkmenu);
-            }
+            return number * 60;
         } else if (menu == fcaram) {
-            Drink drinkmenu = new Drink("Frappe", "Caramel Macchiato", number, Integer.parseInt("55"), 39);
-            if (checkDrink(drinkmenu) == 1) {
-                showdrink.add(drinkmenu);
-            }
+            return number * 60;
         } else if (menu == ffruit) {
-            Drink drinkmenu = new Drink("Frappe", "Fruit Tea\t", number, Integer.parseInt("55"), 40);
-            if (checkDrink(drinkmenu) == 1) {
-                showdrink.add(drinkmenu);
-            }
+            return number * 55;
         }//lastelse
-    }
-
-    public int checkDes(Dessert des) {
-        int keep = 1;
-        for (int i = 0; i < showdes.size(); i++) {//for check
-            Dessert check = (Dessert) showdes.get(i);
-            if (check.getPosition() == des.getPosition()) {
-                if (check.getNumbers() != des.getNumbers()) {
-                    showdes.remove(i);
-                    showdes.add(des);
-                }
-                keep = 0;
-                break;
-            }
-        }
-        return keep;
-    }
-
-    public int checkDrink(Drink drinkmenu) {
-        int keep = 1;
-        for (int i = 0; i < showdrink.size(); i++) {//for check
-            Drink check = (Drink) showdrink.get(i);
-            if (check.getPosition() == drinkmenu.getPosition()) {
-                if (check.getNumbers() != drinkmenu.getNumbers()) {
-                    showdrink.remove(i);
-                    showdrink.add(drinkmenu);
-                }
-                keep = 0;
-                break;
-            }
-        }
-        return keep;
+        return 0;
     }
 
     public void saveDessertdata() {
         File f = new File("DessertData.data");
-        if (f.exists()) {
-            f.delete();
-        }
         try {
             FileOutputStream fOut = new FileOutputStream("DessertData.data");
             ObjectOutputStream oout = new ObjectOutputStream(fOut);
             oout.writeObject(deslist);
-
             fOut.close();
         } catch (Exception i) {
             i.printStackTrace();
@@ -870,10 +711,6 @@ public class mainFrame extends Thread implements ActionListener, WindowListener 
 
     public void saveDrinkdata() {
         File f = new File("DrinkData.data");
-        if (f.exists()) {
-            f.delete();
-        }
-
         try {
             FileOutputStream fOut = new FileOutputStream("DrinkData.data");
             ObjectOutputStream oout = new ObjectOutputStream(fOut);
@@ -1019,8 +856,8 @@ public class mainFrame extends Thread implements ActionListener, WindowListener 
 
         }//switch   
     }
-    
-    public boolean isdigit(String check){
+
+    public boolean isdigit(String check) {
         boolean numeric = true;
         try {
             Double num = Double.parseDouble(check);
@@ -1082,10 +919,12 @@ public class mainFrame extends Thread implements ActionListener, WindowListener 
                 new Final_Bill();
             }
         }
+
         if (ae.getSource().equals(logout)) {
             fr.dispose();
             new Login();
         }
+
         if (ae.getSource().equals(reset)) {
             ti.setText(null);
             choc.setText(null);
@@ -1131,8 +970,8 @@ public class mainFrame extends Thread implements ActionListener, WindowListener 
             cal_dessert.setText(null);
             vat7.setText(null);
             last.setText(null);
-            showdes = new ArrayList<Dessert>();
-            showdrink = new ArrayList<Drink>();
+            int showdes = 0;
+            int showdrink = 0;
         }
     }
 
@@ -1140,61 +979,54 @@ public class mainFrame extends Thread implements ActionListener, WindowListener 
     public void run() {
         try {
             while (close == 0) {
-                keeporder(ti);
-                keeporder(choc);
-                keeporder(ban);
-                keeporder(str);
-                keeporder(blu);
-                keeporder(tof);
-                keeporder(coco);
-                keeporder(red);
-                keeporder(brown);
-                keeporder(eg); //dessert
-                keeporder(hess);
-                keeporder(hlatt);
-                keeporder(hcappu);
-                keeporder(hamer);
-                keeporder(hmoch);
-                keeporder(hmat);
-                keeporder(hblack);
-                keeporder(hchoco);
-                keeporder(hcaram);
-                keeporder(hfruit); //hotdrink
-                keeporder(iess);
-                keeporder(ilatt);
-                keeporder(icappu);
-                keeporder(iamer);
-                keeporder(imoch);
-                keeporder(imat);
-                keeporder(iblack);
-                keeporder(ichoco);
-                keeporder(icaram);
-                keeporder(ifruit); //icedrink
-                keeporder(fess);
-                keeporder(flatt);
-                keeporder(fcappu);
-                keeporder(famer);
-                keeporder(fmoch);
-                keeporder(fmat);
-                keeporder(fblack);
-                keeporder(fchoco);
-                keeporder(fcaram);
-                keeporder(ffruit); //frappedrink
-                int calcu = 0;
-                for (int i = 0; i < showdes.size(); i++) {//for check
-                    des = (Dessert) showdes.get(i);
-                    calcu += des.getPrices() * des.getNumbers();
-                }
-                cal_dessert.setText(Integer.toString(calcu));
-                int save = calcu;
-                for (int i = 0; i < showdrink.size(); i++) {//for check
-                    drinkmenu = (Drink) showdrink.get(i);
-                    calcu += drinkmenu.getPrices() * drinkmenu.getNumbers();
-                }
-                sum = calcu;
-                cal_drink.setText(Integer.toString(calcu - save));
-                vat7.setText(Integer.toString(calcu * 7 / 100));
-                last.setText(Integer.toString(calcu + (calcu * 7 / 100)));
+                int showdes = 0;
+                int showdrink = 0;
+                showdes += keeporder(ti);
+                showdes += keeporder(choc);
+                showdes += keeporder(ban);
+                showdes += keeporder(str);
+                showdes += keeporder(blu);
+                showdes += keeporder(tof);
+                showdes += keeporder(coco);
+                showdes += keeporder(red);
+                showdes += keeporder(brown);
+                showdes += keeporder(eg); //dessert
+                showdrink += keeporder(hess);
+                showdrink += keeporder(hlatt);
+                showdrink += keeporder(hcappu);
+                showdrink += keeporder(hamer);
+                showdrink += keeporder(hmoch);
+                showdrink += keeporder(hmat);
+                showdrink += keeporder(hblack);
+                showdrink += keeporder(hchoco);
+                showdrink += keeporder(hcaram);
+                showdrink += keeporder(hfruit); //hotdrink
+                showdrink += keeporder(iess);
+                showdrink += keeporder(ilatt);
+                showdrink += keeporder(icappu);
+                showdrink += keeporder(iamer);
+                showdrink += keeporder(imoch);
+                showdrink += keeporder(imat);
+                showdrink += keeporder(iblack);
+                showdrink += keeporder(ichoco);
+                showdrink += keeporder(icaram);
+                showdrink += keeporder(ifruit); //icedrink
+                showdrink += keeporder(fess);
+                showdrink += keeporder(flatt);
+                showdrink += keeporder(fcappu);
+                showdrink += keeporder(famer);
+                showdrink += keeporder(fmoch);
+                showdrink += keeporder(fmat);
+                showdrink += keeporder(fblack);
+                showdrink += keeporder(fchoco);
+                showdrink += keeporder(fcaram);
+                showdrink += keeporder(ffruit); //frappedrink
+
+                cal_dessert.setText(Integer.toString(showdes));
+                sum = showdes + showdrink;
+                cal_drink.setText(Integer.toString(showdrink));
+                vat7.setText(Integer.toString((showdes + showdrink) * 7 / 100));
+                last.setText(Integer.toString((showdes + showdrink) + ((showdes + showdrink) * 7 / 100)));
                 Thread.sleep(500);
             }
         } catch (InterruptedException e) {
@@ -1204,7 +1036,6 @@ public class mainFrame extends Thread implements ActionListener, WindowListener 
 
     @Override
     public void windowOpened(WindowEvent we) {
-
         if (show == 1) {
             try {
                 FileInputStream fin = new FileInputStream("DrinkData.data");
@@ -1236,10 +1067,7 @@ public class mainFrame extends Thread implements ActionListener, WindowListener 
                 drinkmenu = (Drink) drinklist.get(i);
                 reviveDrink(drinkmenu);
             }
-            deslist = new ArrayList<Dessert>();//เคลียข้อมูลในlistใหม่
-            drinklist = new ArrayList<Drink>();//เคลียข้อมูลในlistใหม่
         }
-
     }
 
     @Override
